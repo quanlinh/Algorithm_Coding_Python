@@ -18,6 +18,9 @@ edge cases that the last value is 0 - 1 would give it
 a negative. So only the first term should take into account in this cases.
 The -1 here is can not be neglect since it has to do with the two last term
 F(n+2) - 1 - [F(m+2)-1]
+
+Sum of Squares of Fibonacci
+F1^2 + .... Fn^2 = Fn*Fn+1
 """
 def fibonannciModuloM(fibonacciTerm,m=10):    
     if fibonacciTerm == 0:
@@ -43,26 +46,34 @@ def pisanoPeriodCal(n):
         return first
     else:        
         return second-1
-    
 if __name__ == "__main__":
-    
-    answer = None
-    m,n = map(int,input().split())       
-    
-    if m==n:        
-        if n < 60:
-            first,second = fibonannciModuloM(n)
-            print(second)
-        else:
-            simpleFibonanci = n%60
-            first,second = fibonannciModuloM(simpleFibonanci)
-            print(second)
+    n = int(input())
+    if n < 60:    
+        theFn,theFnPlus1 = fibonannciModuloM(n+1)            
+        print((theFn*theFnPlus1) % 10)
     else:
-        sumUpToNTerms = pisanoPeriodCal(n)
-        sumUpToMTerms = pisanoPeriodCal(m-1)
-       
-        if sumUpToNTerms-sumUpToMTerms < 0:            
-            print(sumUpToNTerms-sumUpToMTerms+10)
-        else:
-            print(sumUpToNTerms-sumUpToMTerms)
+        simpleFibonanci = (n+1)%60
+        theFn,theFnPlus1 = fibonannciModuloM(simpleFibonanci)
+        print((theFn*theFnPlus1) % 10)   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
