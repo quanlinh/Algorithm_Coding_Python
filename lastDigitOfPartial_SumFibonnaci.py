@@ -21,7 +21,7 @@ F(n+2) - 1 - [F(m+2)-1]
 """
 def fibonannciModuloM(fibonacciTerm,m=10):    
     if fibonacciTerm == 0:
-        return None,0
+        return 0,0
     elif fibonacciTerm == 1:
         return 0,1
     else:
