@@ -15,7 +15,7 @@ def fractionalSnapSack(n,totalWeight,mapValuesAndWeights):
             if mapValuesAndWeights[selectValue] > 0:                            
                 selectValueWeight = min(mapValuesAndWeights[selectValue],totalWeight)
                 totalValues += selectValueWeight*selectValue
-                mapValuesAndWeights[selectValue] = mapValuesAndWeights[selectValue]-selectValueWeight
+                mapValuesAndWeights[selectValue] -=selectValueWeight
                 if mapValuesAndWeights[selectValue] == 0:
                     del mapValuesAndWeights[selectValue]
                 totalWeight -= selectValueWeight
