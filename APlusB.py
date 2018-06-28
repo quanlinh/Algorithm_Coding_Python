@@ -7,6 +7,7 @@
 # Then run
 #     python3 APlusB.py < dataset.txt
 
+
 import sys
 
 input = sys.stdin.read()
