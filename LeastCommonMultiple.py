@@ -10,16 +10,19 @@ Sources: https://en.wikipedia.org/wiki/Least_common_multiple
 lcm(a,b) = (a/gcd(a,b))*b
 """
 import math
-def gcd(a,b):
-     if b == 0:
-         return a
-     else:
-        d = a%b
-        return gcd(b,d)
-         
+
+
+def gcd(a, b):
+    if b == 0:
+        return a
+    else:
+        d = a % b
+        return gcd(b, d)
+
+
 if __name__ == "__main__":
-    a, b = map(int, input().split())   
-    print(math.floor(a/(gcd(a, b)))*b)
+    a, b = map(int, input().split())
+    print(math.floor(a / (gcd(a, b))) * b)
     """ Test for correctness
     assert int(28851538/(gcd(28851538, 1183019))*1183019)==1933053046
     """

@@ -17,3 +17,4 @@ def testLongestIncreasingSubsequence():
     d = [1, 3, 6, 7, 9, 4, 10, 5, 6]
     assert len(lis.findLongestIncreasingSubSequencesByPatienceSorted(d)) == 6
     assert lis.findLongestIncreasingSubSequencesByPatienceSorted(d) == [1, 3, 6, 7, 9, 10]
+1

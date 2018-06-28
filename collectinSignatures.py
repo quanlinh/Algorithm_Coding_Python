@@ -1,4 +1,4 @@
-#use python3
+# use python3
 # -*- coding: utf-8 -*-
 """
 Created on Fri May 25 23:17:51 2018
@@ -13,32 +13,33 @@ The keys ideas is to recognize that this problems is a classic greedy algorithm
 smallest bj
 Lesson learned: becareful use of data structures that not allow duplicated keys
 """
+
+
 def greedyPickOfSegment(setOfSegmentsInterval):
     # as long as the set is not all covers
     minimumNumberOfPoints = 0
     listOfPointsValues = []
-    
-        
-    while setOfSegmentsInterval:        
+
+    while setOfSegmentsInterval:
         # O(n) time to get the min        
-        temp1,greedyChoiceEarliest = setOfSegmentsInterval[0]
-        for i in range(len(setOfSegmentsInterval)-1):
-            startSegments,endSegments = setOfSegmentsInterval[i+1]
+        temp1, greedyChoiceEarliest = setOfSegmentsInterval[0]
+        for i in range(len(setOfSegmentsInterval) - 1):
+            startSegments, endSegments = setOfSegmentsInterval[i + 1]
             if endSegments < greedyChoiceEarliest:
-                greedyChoiceEarliest = endSegments                  
+                greedyChoiceEarliest = endSegments
         listOfPointsValues.append(greedyChoiceEarliest)
-        minimumNumberOfPoints+=1
+        minimumNumberOfPoints += 1
         # remove all the incompatible interval, means remove all the 
         # segments that had been cover               
         i = 0
         while i < len(setOfSegmentsInterval):
-            startSegments,endSegments = setOfSegmentsInterval[i]
+            startSegments, endSegments = setOfSegmentsInterval[i]
             if startSegments <= greedyChoiceEarliest:
-                del setOfSegmentsInterval[i]    
-            else: 
-                i +=1            
-    return (minimumNumberOfPoints,listOfPointsValues)
-    
+                del setOfSegmentsInterval[i]
+            else:
+                i += 1
+    return (minimumNumberOfPoints, listOfPointsValues)
+
 
 if __name__ == "__main__":
     minimumIntervalToCollectSignatures = {}
@@ -51,15 +52,14 @@ if __name__ == "__main__":
             tempList =  (f.readline()).split()
             setOfSegmentsInterval.append((tempList[0],tempList[1]))
     f.close()
-    '''        
+    '''
     # start with an empty set
-    
-    numberOfSegMents = int(input())   
+
+    numberOfSegMents = int(input())
     for i in range(numberOfSegMents):
-        ai,bj = map(int,input().split())
-        setOfSegmentsInterval.append((ai,bj))
-    minimumNumberOfPoints,listOfPointsValues = greedyPickOfSegment(setOfSegmentsInterval)
+        ai, bj = map(int, input().split())
+        setOfSegmentsInterval.append((ai, bj))
+    minimumNumberOfPoints, listOfPointsValues = greedyPickOfSegment(setOfSegmentsInterval)
     print(minimumNumberOfPoints)
     for i in range(len(listOfPointsValues)):
-        print(listOfPointsValues[i],end=" ")
-        
+        print(listOfPointsValues[i], end=" ")
